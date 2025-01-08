@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>נלחמים בשחיתות</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+            background-color: #add8e6; /* רקע תכלת */
+        }
+        .contact {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+        .contact img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* עיצוב עיגול */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .contact-name {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header-img {
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 10px; /* פינות מעוגלות לתמונה הראשית */
+        }
+    </style>
+</head>
+<body>
+    <h1>נלחמים בשחיתות</h1>
+    <img src="https://imgur.com/yr22hFa.jpg" alt="תמונה ראשית" class="header-img">
+    <p>בחר למי לשלוח והקלד את ההודעה:</p>
+
+    <!-- כפתורים עם שמות ותמונות -->
+    <div>
+        <div class="contact">
+            <img src="https://imgur.com/K6YrSZs.jpg" alt="מנדי וולף">
+            <div class="contact-name">מנדי וולף - (ירוחם)</div>
+            <button onclick="selectRecipient('972515517708')">בחר</button>
+        </div>
+        <div class="contact">
+            <img src="https://imgur.com/CzYJQue.jpg" alt="שמעון דברוסקין">
+            <div class="contact-name">שמעון דברוסקין</div>
+            <button onclick="selectRecipient('972528151841')">בחר</button>
+        </div>
+    </div>
+
+    <!-- שדה הודעה וכפתור שליחה -->
+    <textarea id="message" rows="5" style="width: 80%; margin-top: 20px;">נלחמים בשחיתות עכשיו!
+גם אני דורש לצרף מנהל נוסף לקבוצה ע"מ לשמור על טוהר ההחלטות</textarea><br><br>
+    <button onclick="sendMessage()" style="padding: 10px 20px; font-size: 16px;">שלח</button>
+
+    <script>
+        let selectedPhoneNumber = null;
+
+        // פונקציה לבחירת נמען
+        function selectRecipient(phoneNumber) {
+            selectedPhoneNumber = phoneNumber;
+            alert(`נבחר הנמען: ${phoneNumber}`);
+        }
+
+        // פונקציה לשליחת הודעה
+        function sendMessage() {
+            if (!selectedPhoneNumber) {
+                alert("אנא בחר נמען קודם!");
+                return;
+            }
+
+            const message = document.getElementById('message').value;
+            if (!message) {
+                alert("אנא כתוב הודעה!");
+                return;
+            }
+
+            // יצירת קישור ל-WhatsApp
+            const whatsappUrl = `https://wa.me/${selectedPhoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
