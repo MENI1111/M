@@ -33,6 +33,12 @@
             margin-top: 10px;
             border-radius: 10px; /* פינות מעוגלות לתמונה הראשית */
         }
+        .footer {
+            background-color: #d3d3d3; /* צבע רקע אפור */
+            padding: 10px;
+            font-size: 12px; /* טקסט קטן */
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +49,7 @@
     <!-- כפתורים עם שמות ותמונות -->
     <div>
         <div class="contact">
-            <img src="https://imgur.com/rMV2iOb.jpg" alt="מנדי וולף">
+            <img src="https://imgur.com/K6YrSZs.jpg" alt="מנדי וולף">
             <div class="contact-name">מנדי וולף - (ירוחם)</div>
             <button onclick="selectRecipient('972515517708')">בחר</button>
         </div>
@@ -58,6 +64,11 @@
     <textarea id="message" rows="5" style="width: 80%; margin-top: 20px;">נלחמים בשחיתות עכשיו!
 גם אני דורש לצרף מנהל נוסף לקבוצה ע"מ לשמור על טוהר ההחלטות</textarea><br><br>
     <button onclick="sendMessage()" style="padding: 10px 20px; font-size: 16px;">שלח</button>
+
+    <!-- Footer -->
+    <div class="footer">
+        פותח ע"י האגף ללוחמה בשחיתות בוואצפ
+    </div>
 
     <script>
         let selectedPhoneNumber = null;
